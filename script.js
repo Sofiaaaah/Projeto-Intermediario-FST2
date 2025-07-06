@@ -25,7 +25,8 @@ adicionar.addEventListener("click", function(){
 
     if(Vproduto==""){
         return
-    }if(Vquantidade==""){
+    }
+    if(Vquantidade==""){
         return
     }
     
