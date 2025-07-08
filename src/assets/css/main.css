@@ -1,0 +1,71 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,591;1,591&display=swap');
+
+*{
+  background-color:#ffbdbd;
+}
+#caixa {
+  background-color: rgb(255, 255, 255);
+  align-items: center;
+  justify-content: center;
+  display: grid;
+  border: 2px solid rgb(121, 119, 119);
+  border-radius: 10px;
+  margin-top: 12%;
+  height: 400px;
+  width: 40%;
+  margin-left: 28%;
+  position: relative;
+  padding: 20px;
+}
+
+h1 {
+  background-color: white;
+  font-family: "Cabin", sans-serif;
+  font-size: 28px;
+  text-decoration: underline;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin-top: -25%;
+}
+
+#linha-inputs {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+#produto,
+#quantidade {
+  background-color: white;
+  color: rgb(0, 48, 0);
+  border-radius: 5px;
+  border: 2px rgb(163, 162, 162) solid;
+  padding: 10px;
+  width: 160px;
+  height: 40px;
+  margin-top: -47%;
+}
+
+#adicionar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -35%; 
+  background-color: #fca5a5;
+  color: white;
+  font-weight: bold;
+  padding: 0 16px;
+  height: 40px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: -47%;
+  
+}
+
+#adicionar:hover {
+  background-color: #f87171;
+}
