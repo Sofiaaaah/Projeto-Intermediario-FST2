@@ -8,8 +8,8 @@ function App() {
       <h1 className='text-gray-500 font-bold'>Lista de Compras e Quantidades</h1>
 
       <div id="linha-inputs">
-        <Input id="produto" placeholder="Nome Produto" />
-        <Input id="quantidade" placeholder="Quantidade" />
+        <Input id="produto" type="text" placeholder="Nome Produto" />
+        <Input id="quantidade" placeholder="Quantidade" type="number" />
         <button id="adicionar" className="bg-red-300 text-white">
         Adicionar
         </button>
