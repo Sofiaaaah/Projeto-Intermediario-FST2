@@ -1,14 +1,15 @@
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,591;1,591&display=swap');
 
-*{
-  background-color:#ffbdbd;
+#body{
+  background-color: #f87171;
+  height: 100%;
+  width: 100%;
 }
 #caixa {
   background-color: rgb(255, 255, 255);
   align-items: center;
   justify-content: center;
-  display: grid;
   border: 2px solid rgb(121, 119, 119);
   border-radius: 10px;
   margin-top: 12%;
@@ -20,14 +21,7 @@
 }
 
 h1 {
-  background-color: white;
-  font-family: "Cabin", sans-serif;
-  font-size: 28px;
-  text-decoration: underline;
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 20px;
-  margin-top: -25%;
+  size: 14px;
 }
 
 #linha-inputs {
@@ -40,6 +34,7 @@ h1 {
 
 #produto,
 #quantidade {
+
   background-color: white;
   color: rgb(0, 48, 0);
   border-radius: 5px;
@@ -51,18 +46,7 @@ h1 {
 }
 
 #adicionar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: -35%; 
-  background-color: #fca5a5;
-  color: white;
-  font-weight: bold;
-  padding: 0 16px;
-  height: 40px;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-top: -47%;
+
   
 }
 

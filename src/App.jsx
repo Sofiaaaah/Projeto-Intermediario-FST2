@@ -1,23 +1,55 @@
-import Input from './components/Input'
-import './assets/css/main.css';
-
+import React, { useState } from "react";
+import './assets/css/style.css';
 function App() {
-  return (
-    <div id='caixa' className='font-bold text-center'>
+    const [itens, setItens] = useState([]);
+    const [produto, setProduto] = useState("");
+    const [quantidade, setQuantidade] = useState("");
 
-      <h1 className='text-gray-500 font-bold'>Lista de Compras e Quantidades</h1>
+    const adicionar = () => {
+        if (produto && quantidade) {
+            setItens([...itens, { produto, quantidade }]);
+            setProduto("");
+            setQuantidade("");
+        }
+    };
 
-      <div id="linha-inputs">
-        <Input id="produto" type="text" placeholder="Nome Produto" />
-        <Input id="quantidade" placeholder="Quantidade" type="number" />
-        <button id="adicionar" className="bg-red-300 text-white">
-        Adicionar
-        </button>
-      </div>
-      
+    const remover = () => {
+        setItens(itens.filter((_, final) => final != ""));
+    };
 
-    </div>
-  );
+    return (
+        <div id="body">
+            <div id="caixa">
+                <h1>Lista de Compras</h1>
+
+                <input
+                    type="text"
+                    id="produto"
+                    placeholder="Produto"
+                    value={produto}
+                    onChange={sla => setProduto(sla.target.value)}
+                />
+                <input
+                    id="quantidade"
+                    type="number"
+                    placeholder="Quantidade"
+                    value={quantidade}
+                    onChange={sla => setQuantidade(sla.target.value)}
+                />
+                <button onClick={adicionar} id="adicionar">Adicionar</button>
+
+                <ul>
+                    {itens.map((item) => (
+                        <p>
+                            {item.produto}  {item.quantidade}
+                            <button onClick={() => remover()}>Remover</button>
+                        </p>
+                    ))}
+                </ul>
+            </div>
+        </div>
+
+    );
 }
 
 export default App;
