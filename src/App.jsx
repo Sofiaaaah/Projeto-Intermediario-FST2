@@ -1,82 +1,83 @@
-import { useState, useEffect } from "react";
-import './assets/css/style.css';
+import { useState, useEffect } from 'react'
 
-function App() {
-    const [itens, setItens] = useState([]);
-    const [produto, setProduto] = useState("");
-    const [quantidade, setQuantidade] = useState("");
+import './assets/css/style.css'
 
-    Storage.prototype.setObj = (key, obj) => {
-        return this.setItem(key, JSON.stringify(obj))
-    }
-
-    Storage.prototype.getObj = (key) => {
-        return JSON.parse(this.getItem(key))
-    }
-
-    const adicionar = () => {
-        if (produto && quantidade > 0) {
-            setItens([...itens, { produto, quantidade }]);
-            setProduto("");
-            setQuantidade("");
-            localStorage.setObj("todo-itens", itens);
-        }
-    };
-
-    const remover = (vazio) => {
-        setItens(itens.filter((_, final) => final != vazio));
-        localStorage.setObj("todo-itens", itens.values);
-    };
-
-    const removerTodos = () => {
-        setItens([]);
-        localStorage.removeItem("todo-itens");
-    };
-
-    useEffect(() => {
-        setItens(localStorage.getObj("todo-itens"))
-    }, [itens]);
-
-    return (
-        <div id="caixa">
-            <div id="navegador">
-                <h1>📝 Vamos adicionar !</h1>
-
-                <input
-                    type="text"
-                    id="produto"
-                    placeholder="Produto"
-                    value={produto}
-                    onChange={e => setProduto(e.target.value)}
-                />
-                <input
-                    id="quantidade"
-                    type="number"
-                    placeholder="Quantidade"
-                    value={quantidade}
-                    onChange={e => setQuantidade(e.target.value)}
-                />
-                <button onClick={adicionar} id="adicionar">Adicionar</button>
-            </div>
-
-            <div>
-                <ul>
-                    {itens.map((item, index) => (
-                        <p class="resultado" key={index}>
-                            <div class="Rproduto">{item.produto}</div>
-                            <div class="Rquantidade">{item.quantidade}</div>
-                            <button onClick={() => remover(index)} class="remover">Remover</button>
-                        </p>
-                    ))}
-                </ul>
-            </div>
-
-            <div>
-                <button id="resetar" onClick={() => removerTodos()}>resetar</button>
-            </div>
-        </div>
-
-    );
+const carregarItens = () => {
+  return JSON.parse(localStorage.getItem('todo-itens')) || []
 }
 
-export default App;
+function App() {
+  const [itens, setItens] = useState(() => carregarItens())
+  const [produto, setProduto] = useState('')
+  const [quantidade, setQuantidade] = useState('')
+
+  const adicionarItem = () => {
+    if (produto && quantidade > 0) {
+      setItens([...itens, { produto, quantidade }])
+      setProduto('')
+      setQuantidade('')
+    }
+  }
+
+  const removerItem = (index) => {
+    setItens(itens.filter((_, final) => final != index))
+  }
+
+  const removerTodosItens = () => {
+    setItens([])
+  }
+
+  const salvarItens = () => {
+    localStorage.setItem('todo-itens', JSON.stringify(itens))
+  }
+
+  useEffect(salvarItens, [itens])
+
+  return (
+    <div id="caixa">
+      <h1>🥕 O que não pode faltar hoje?</h1>
+
+      <div id="navegador">
+        <input
+          type="text"
+          id="input-produto"
+          placeholder="Produto"
+          value={produto}
+          onChange={(e) => setProduto(e.target.value)}
+        />
+        <input
+          id="input-quantidade"
+          type="number"
+          placeholder="Quantidade"
+          value={quantidade}
+          onChange={(e) => setQuantidade(e.target.value)}
+        />
+        <button onClick={adicionarItem} id="btn-adicionar">
+          Adicionar
+        </button>
+      </div>
+
+      <div>
+        <ul>
+          {itens.map((item, index) => (
+            <div className="resultado" key={index}>
+              <input className="resultado-produto" value={item.produto} readOnly />
+              <input className="resultado-quantidade" value={item.quantidade} readOnly />
+              <button onClick={() => removerItem(index)} className="resultado-btn-remover">
+                Remover
+              </button>
+            </div>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <button id="resetar" onClick={() => removerTodosItens()}>
+          resetar
+        </button>
+      </div>
+    </div>
+  )
+}
+
+export default App
