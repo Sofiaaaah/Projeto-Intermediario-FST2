@@ -33,29 +33,27 @@ function App() {
 
   useEffect(salvarItens, [itens])
 
-  return (
-    <div id="caixa">
-      <h1>🥕 O que não pode faltar hoje?</h1>
+    return (
+        <div id="caixa">
+            <div id="navegador">
+                <h1>📝 Vamos adicionar !</h1>
 
-      <div id="navegador">
-        <input
-          type="text"
-          id="input-produto"
-          placeholder="Produto"
-          value={produto}
-          onChange={(e) => setProduto(e.target.value)}
-        />
-        <input
-          id="input-quantidade"
-          type="number"
-          placeholder="Quantidade"
-          value={quantidade}
-          onChange={(e) => setQuantidade(e.target.value)}
-        />
-        <button onClick={adicionarItem} id="btn-adicionar">
-          Adicionar
-        </button>
-      </div>
+                <input
+                    type="text"
+                    id="produto"
+                    placeholder="Produto"
+                    value={produto}
+                    onChange={e => setProduto(e.target.value)}
+                />
+                <input
+                    id="quantidade"
+                    type="number"
+                    placeholder="Quantidade"
+                    value={quantidade}
+                    onChange={e => setQuantidade(e.target.value)}
+                />
+                <button onClick={adicionar} id="adicionar">Adicionar</button>
+            </div>
 
       <div>
         <ul>
@@ -80,4 +78,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
