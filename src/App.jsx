@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-
 import './assets/css/style.css';
 
 const carregarItens = () => {

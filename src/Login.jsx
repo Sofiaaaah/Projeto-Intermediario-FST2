@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import './assets/css/login.css';
 function Login() {
   const [Usuario, setUsuario] = useState("");
   const [Senha, setSenha] = useState("");
@@ -19,6 +19,7 @@ function Login() {
 
   return (
     <div>
+      <div id="caixa">
       <h1>Login</h1>
       <input
         type="text"
@@ -35,6 +36,7 @@ function Login() {
         required
       />
       <button onClick={Entrar}>Entrar</button>
+    </div>
     </div>
   );
 }
