@@ -77,7 +77,7 @@ button:hover {
   display: inline-block;
   margin-top: 10px;
   border-radius: 5px;
-  border: 2px solid grey;
+  border: 2px solid rgb(95, 152, 216);
   font-size: 15px;
 }
 
