@@ -106,11 +106,6 @@ button:hover {
   width: 100px;
   border-radius: 5px;
   border: 2px rgb(51, 49, 49) solid;
-  animation: aparecer 0.3s ease;
-}
-@keyframes desaparecer {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 .resultado-btn-remover:hover {
@@ -121,5 +116,21 @@ button:hover {
 }
 
 #mensagem-prod{
+  text-align: center;
+  font-size: 14px;
+  color: #186b2ad3;
+  margin-bottom: 6px;
+  font-family: Arial, sans-serif;
+  animation: fadeSlideDown 0.4s ease forwards;
+}
 
+@keyframes fadeSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
